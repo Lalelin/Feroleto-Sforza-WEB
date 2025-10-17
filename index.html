@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sforza & Asociados - Servicios Legales Integrales</title>
+    <style>
+        /* ===== RESET Y ESTILOS GENERALES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2B5199;
+            --primary-dark: #1a3a7a;
+            --secondary: #6c757d;
+            --light: #ffffff;
+            --dark: #343a40;
+            --gray: #666;
+            --light-gray: #f8f9fa;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--gray);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .bg-light {
+            background-color: var(--light-gray);
+        }
+
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
+        .text-white { color: var(--light); }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 16px;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: var(--light);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: var(--light-gray);
+            padding: 10px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 35px;
+            height: 35px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .about-features {
+            margin: 20px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .feature-item i {
+            color: var(--primary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .contact-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-info">
+                    <div class="contact-info">
+                        <div>
+                            <i>📧</i>
+                            <span>esforza43@hotmail.com</span>
+                        </div>
+                        <div>
+                            <i>📞</i>
+                            <span>+54 11 1234-5678</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i>f</i></a>
+                        <a href="#"><i>in</i></a>
+                        <a href="#"><i>ig</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Sforza & Asoc.</a>
+                
+                <ul class="nav-links">
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#ciudadania">Ciudadanía Italiana</a></li>
+                    <li><a href="#legal">Servicios Legales</a></li>
+                    <li><a href="#gestoria">Gestoría Automotor</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Servicios Legales Integrales</h1>
+                <p>Especialistas en ciudadanía italiana, servicios legales y gestoría automotor. Más de 25 años de experiencia profesional.</p>
+                <a href="#contacto" class="btn btn-large">Consulta Gratuita</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Nuestros Servicios</h2>
+                <p>Ofrecemos soluciones profesionales en tres áreas especializadas</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Ciudadanía Italiana -->
+                <div id="ciudadania" class="service-card">
+                    <div class="service-icon">🇮🇹</div>
+                    <h3>Ciudadanía Italiana</h3>
+                    <p>Te ayudamos a obtener tu ciudadanía italiana por descendencia. Reconstrucción genealógica, trámites consulares y asesoramiento integral.</p>
+                    <ul style="text-align: left; margin: 20px 0;">
+                        <li>Reconstrucción de árbol genealógico</li>
+                        <li>Gestión de documentación</li>
+                        <li>Trámites consulares</li>
+                        <li>Seguimiento personalizado</li>
+                    </ul>
+                    <a href="#contacto" class="btn">Más Información</a>
+                </div>
+
+                <!-- Servicios Legales -->
+                <div id="legal" class="service-card">
+                    <div class="service-icon">⚖️</div>
+                    <h3>Servicios Legales</h3>
+                    <p>Asesoramiento legal profesional en diversas áreas del derecho. Defendemos tus derechos con experiencia y compromiso.</p>
+                    <ul style="text-align: left; margin: 20px 0;">
+                        <li>Derecho Civil y Comercial</li>
+                        <li>Derecho de Familia</li>
+                        <li>Sucesiones</li>
+                        <li>Derecho Laboral</li>
+                        <li>Asesoramiento Empresarial</li>
+                    </ul>
+                    <a href="#contacto" class="btn">Consultar Abogado</a>
+                </div>
+
+                <!-- Gestoría Automotor -->
+                <div id="gestoria" class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>Gestoría Automotor</h3>
+                    <p>Gestión integral de trámites vehiculares. Rapidez, seguridad y profesionalismo en todas tus gestiones automotores.</p>
+                    <ul style="text-align: left; margin: 20px 0;">
+                        <li>Transferencias vehiculares</li>
+                        <li>Inscripciones y patentamientos</li>
+                        <li>Altas y bajas de dominio</li>
+                        <li>Denuncias de venta</li>
+                        <li>Informes de dominio</li>
+                    </ul>
+                    <a href="#contacto" class="btn">Cotizar Trámite</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <!-- Imagen placeholder - puedes reemplazar con una imagen real -->
+                    <div style="width:100%; height:400px; background:#ddd; display:flex; align-items:center; justify-content:center; color:#666;">
+                        Imagen del equipo profesional
+                    </div>
+                </div>
+                <div>
+                    <h2>Sforza & Asociados</h2>
+                    <p>Con más de 25 años de experiencia, nos hemos consolidado como referentes en servicios legales integrales, combinando la tradición familiar con la innovación profesional.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i>✓</i>
+                            <span>Atención personalizada y dedicada</span>
+                        </div>
+                        <div class="feature-item">
+                            <i>✓</i>
+                            <span>Resultados comprobados</span>
+                        </div>
+                        <div class="feature-item">
+                            <i>✓</i>
+                            <span>Transparencia en todos los procesos</span>
+                        </div>
+                        <div class="feature-item">
+                            <i>✓</i>
+                            <span>Equipo multidisciplinario</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#contacto" class="btn">Conoce Nuestro Equipo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Contacto</h2>
+                <p>¿En qué podemos ayudarte? Selecciona el servicio de tu interés</p>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nombre completo *</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Teléfono *</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Servicio de interés *</label>
+                        <select id="service" class="form-control" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="Ciudadanía Italiana">Ciudadanía Italiana</option>
+                            <option value="Servicios Legales">Servicios Legales</option>
+                            <option value="Gestoría Automotor">Gestoría Automotor</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje *</label>
+                        <textarea id="message" class="form-control" rows="5" required placeholder="Describe brevemente tu consulta..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width:100%;">Enviar Consulta por WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sforza & Asociados</h3>
+                    <p>Especialistas en servicios legales integrales, ciudadanía italiana y gestoría automotor. Más de 25 años de experiencia nos avalan.</p>
+                    <div class="social-links">
+                        <a href="#"><i>f</i></a>
+                        <a href="#"><i>in</i></a>
+                        <a href="#"><i>ig</i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li>📧 esforza43@hotmail.com</li>
+                        <li>📞 +54 11 1234-5678</li>
+                        <li>📍 Av. Corrientes 1234, CABA</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Horarios</h3>
+                    <ul class="footer-links">
+                        <li>Lunes a Viernes: 9:00 - 18:00</li>
+                        <li>Sábados: 9:00 - 13:00</li>
+                        <li>Urgencias: 24/7</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sforza & Asociados. Todos los derechos reservados.</p>
+                <p>Desarrollado por AESA Technology</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript simple para funcionalidades básicas
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menú móvil
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Smooth scroll para enlaces internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Cerrar menú móvil si está abierto
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+
+            // Formulario de contacto - ENVÍO A WHATSAPP
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Obtener valores del formulario
+                const nombre = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const telefono = document.getElementById('phone').value;
+                const servicio = document.getElementById('service').value;
+                const mensaje = document.getElementById('message').value;
+                
+                // Número de WhatsApp (REEMPLAZA CON TU NÚMERO)
+                // Formato: código de país + número sin espacios ni símbolos
+                // Ejemplo para Argentina: 5491167034750
+                const numeroWhatsApp = "5491167034750";
+                
+                // Crear mensaje estructurado
+                const texto = `¡Hola! Me interesa contactarme con Sforza & Asociados.
+
+*Información de contacto:*
+• *Nombre:* ${nombre}
+• *Email:* ${email}
+• *Teléfono:* ${telefono}
+
+*Servicio de interés:* ${servicio}
+
+*Mensaje:*
+${mensaje}
+
+Espero su respuesta. ¡Gracias!`;
+                
+                // Codificar el mensaje para URL
+                const mensajeCodificado = encodeURIComponent(texto);
+                
+                // Crear URL de WhatsApp
+                const url = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+                
+                // Abrir WhatsApp en una nueva pestaña
+                window.open(url, '_blank');
+                
+                // Opcional: resetear el formulario después del envío
+                // this.reset();
+            });
+
+            // Cambiar clase activa en navegación al hacer scroll
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('.nav-links a');
+                
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
