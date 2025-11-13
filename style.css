@@ -460,3 +460,69 @@
                 padding: 20px;
             }
         }
+
+        /* ===== BOTÓN FLOTANTE WHATSAPP ===== */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 999;
+  text-decoration: none; /* 💡 quita el subrayado */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ícono dentro del botón */
+.whatsapp-float i {
+  font-size: 28px;
+  line-height: 0;
+}
+
+/* Efecto hover */
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* ✨ Efecto de pulso (opcional) */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.whatsapp-float {
+  animation: pulse 2s infinite;
+}
+
+/* ===== HOVER EN BOTÓN DEL HERO ===== */
+.hero .btn:hover {
+  background: #fff;
+  color: var(--primary);
+}
+
+/* ===== AJUSTES RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .mobile-menu-btn {
+    padding: 10px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* ===== FORMULARIO MÁS TRANSLÚCIDO ===== */
+.contact-form {
+  background: rgba(255, 255, 255, 0.6); /* más transparente */
+}
