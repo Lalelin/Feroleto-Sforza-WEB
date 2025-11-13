@@ -244,6 +244,12 @@
             transform: translateY(-10px);
         }
 
+        .service-card ul {
+            display: inline-block;  /* hace que se centre todo el bloque */
+            text-align: left;       /* pero mantiene los ítems alineados entre sí */
+            list-style-position: inside;
+        }
+
         .service-icon {
             width: 80px;
             height: 80px;
@@ -277,6 +283,13 @@
         .section.services > * {
           position: relative;
           z-index: 1;
+        }
+
+        /* ===== COLOR DE TÍTULOS Y SUBTÍTULOS EN SECCIÓN SERVICIOS ===== */
+        .section.services > .container > .text-center h2,
+        .section.services > .container > .text-center p {
+        color: white;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         /* ===== ABOUT SECTION ===== */
@@ -337,6 +350,14 @@
         box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         color: var(--dark);
         }
+
+        /* ===== COLOR DE TÍTULOS Y SUBTÍTULOS EN SECCIÓN CONTACTO ===== */
+        #contacto h2,
+        #contacto p {
+        color: white;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
 
         .form-group {
         margin-bottom: 20px;
