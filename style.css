@@ -304,11 +304,20 @@
             min-height: 400px;
         }
 
+        .about-image img {
+        width: 100%;       /* Ocupa todo el ancho disponible */
+        max-width: 600px;  /* Ajusta el tamaño máximo (podés cambiarlo) */
+        height: auto;      /* Mantiene proporción */
+        border-radius: 10px; /* Opcional, queda prolijo */
+        display: block;
+        margin: 0 auto;
+        }
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-            align-items: stretch; /* hace que la imagen se estire a la misma altura que el texto */
+            align-items: center;
         }
 
         .about-features {
